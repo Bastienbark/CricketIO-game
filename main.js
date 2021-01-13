@@ -343,7 +343,9 @@ class GameComponent {
         return skillClass;
     }
     getNumberStateClass(index) {
-        return this.service.isNumberClosed(this.players, index) ? 'red' : 'green';
+        const isClosedByAll = this.players.every(player => player.points[index] === 3);
+        const isClosedByOne = this.players.some(player => player.points[index] === 3);
+        return isClosedByAll ? 'red' : isClosedByOne ? 'orange' : 'green';
     }
     addTargetValue(value) {
         const turn = this.getTurn();
@@ -372,10 +374,12 @@ class GameComponent {
     }
     haveAWinner() {
         let theWinner = null;
-        this.players.forEach(player => {
-            const total = player.points.reduce((a, b) => a + b, 0);
-            total === 21 ? theWinner = player.name : null;
+        const orderedPlayers = this.players;
+        orderedPlayers.sort((a, b) => {
+            return b.score - a.score;
         });
+        const total = orderedPlayers[0].points.reduce((a, b) => a + b, 0);
+        total === 21 ? theWinner = orderedPlayers[0].name : null;
         return theWinner;
     }
     getPlayersFromRoute() {
