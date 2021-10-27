@@ -451,7 +451,7 @@ GameComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.targets);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](12);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("disabled", !ctx.isValidateEnabled);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass], styles: [".game[_ngcontent-%COMP%]   .target[_ngcontent-%COMP%] {\n  background-color: green;\n  color: white;\n  border-radius: 15px;\n  margin-left: 2px;\n  font-size: 19px;\n}\n.game[_ngcontent-%COMP%]   .point[_ngcontent-%COMP%] {\n  background-color: whitesmoke;\n  border-radius: 15px;\n  margin-left: 2px;\n  font-size: 30px;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%] {\n  left: 5px;\n  right: 5px;\n  position: absolute;\n  bottom: 0;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  font-size: 20px;\n  min-width: 65px;\n  margin-bottom: 5px;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%]   .btn-target[_ngcontent-%COMP%] {\n  font-size: 20px;\n  min-width: 40px;\n  margin-bottom: 15px;\n}\n.game[_ngcontent-%COMP%]   .first-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%], .game[_ngcontent-%COMP%]   .second-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%], .game[_ngcontent-%COMP%]   .third-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%] {\n  background-color: goldenrod;\n  padding: 5px;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 5px;\n  min-width: 40px;\n}\n.game[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  background-color: green;\n  border-radius: 5px;\n  border: 1px solid black;\n  box-shadow: black;\n  color: whitesmoke;\n  font-weight: bold;\n}\n.game[_ngcontent-%COMP%]   .player[_ngcontent-%COMP%] {\n  font-weight: bold;\n}\n.green[_ngcontent-%COMP%] {\n  background-color: green !important;\n}\n.red[_ngcontent-%COMP%] {\n  background-color: red !important;\n}\n.orange[_ngcontent-%COMP%] {\n  background-color: orange !important;\n}\n.simple[_ngcontent-%COMP%] {\n  color: #007bff;\n}\n.double[_ngcontent-%COMP%] {\n  color: #6c757d;\n}\n.triple[_ngcontent-%COMP%] {\n  color: #dc3545;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdhbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSx1QkFBQTtFQUNBLFlBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtBQUFKO0FBRUU7RUFDRSw0QkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7RUFDQSxlQUFBO0FBQUo7QUFFRTtFQUNFLFNBQUE7RUFDQSxVQUFBO0VBQ0Esa0JBQUE7RUFDQSxTQUFBO0FBQUo7QUFFSTtFQUNFLGVBQUE7RUFDQSxlQUFBO0VBQ0Esa0JBQUE7QUFBTjtBQUVJO0VBQ0UsZUFBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtBQUFOO0FBT0k7OztFQUNFLDJCQUFBO0VBQ0EsWUFBQTtFQUNBLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtBQUhOO0FBT0U7RUFDRSx1QkFBQTtFQUNBLGtCQUFBO0VBQ0EsdUJBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7QUFMSjtBQVFFO0VBQ0UsaUJBQUE7QUFOSjtBQVVBO0VBQ0Usa0NBQUE7QUFQRjtBQVNBO0VBQ0UsZ0NBQUE7QUFORjtBQVFBO0VBQ0UsbUNBQUE7QUFMRjtBQVFBO0VBQ0UsY0FBQTtBQUxGO0FBT0E7RUFDRSxjQUFBO0FBSkY7QUFNQTtFQUNFLGNBQUE7QUFIRiIsImZpbGUiOiJnYW1lLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmdhbWUge1xyXG4gIC50YXJnZXQge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW47XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxNXB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIGZvbnQtc2l6ZTogMTlweDtcclxuICB9XHJcbiAgLnBvaW50IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlc21va2U7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxNXB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIGZvbnQtc2l6ZTogMzBweDtcclxuICB9XHJcbiAgLmJ1dHRvbnMge1xyXG4gICAgbGVmdDogNXB4O1xyXG4gICAgcmlnaHQ6IDVweDtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGJvdHRvbTogMDtcclxuXHJcbiAgICBidXR0b24ge1xyXG4gICAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogNjVweDtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gICAgfVxyXG4gICAgLmJ0bi10YXJnZXQge1xyXG4gICAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogNDBweDtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIC5maXJzdC10dXJuLFxyXG4gIC5zZWNvbmQtdHVybixcclxuICAudGhpcmQtdHVybiB7XHJcbiAgICAuc2tpbGwge1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBnb2xkZW5yb2Q7XHJcbiAgICAgIHBhZGRpbmc6IDVweDtcclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgICBtaW4td2lkdGg6IDQwcHg7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAuY3VycmVudCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gICAgYm94LXNoYWRvdzogYmxhY2s7XHJcbiAgICBjb2xvcjogd2hpdGVzbW9rZTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIH1cclxuXHJcbiAgLnBsYXllciB7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICB9XHJcbn1cclxuXHJcbi5ncmVlbiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW4gIWltcG9ydGFudDtcclxufVxyXG4ucmVkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQgIWltcG9ydGFudDtcclxufVxyXG4ub3JhbmdlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBvcmFuZ2UgIWltcG9ydGFudDtcclxufVxyXG5cclxuLnNpbXBsZSB7XHJcbiAgY29sb3I6ICMwMDdiZmY7XHJcbn1cclxuLmRvdWJsZSB7XHJcbiAgY29sb3I6ICM2Yzc1N2Q7XHJcbn1cclxuLnRyaXBsZSB7XHJcbiAgY29sb3I6ICNkYzM1NDU7XHJcbn1cclxuIl19 */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass], styles: [".game[_ngcontent-%COMP%]   .target[_ngcontent-%COMP%] {\n  background-color: green;\n  color: white;\n  margin-left: 2px;\n  font-size: 25px;\n}\n.game[_ngcontent-%COMP%]   .point[_ngcontent-%COMP%] {\n  background-color: whitesmoke;\n  border-radius: 15px;\n  margin-left: 2px;\n  font-size: 30px;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%] {\n  left: 5px;\n  right: 5px;\n  position: absolute;\n  bottom: 0;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  font-size: 20px;\n  min-width: 65px;\n  margin-bottom: 5px;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%]   .btn-target[_ngcontent-%COMP%] {\n  font-size: 20px;\n  min-width: 40px;\n  margin-bottom: 15px;\n}\n.game[_ngcontent-%COMP%]   .first-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%], .game[_ngcontent-%COMP%]   .second-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%], .game[_ngcontent-%COMP%]   .third-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%] {\n  background-color: goldenrod;\n  padding: 5px;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 5px;\n  min-width: 40px;\n}\n.game[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  background-color: green;\n  border-radius: 5px;\n  border: 1px solid black;\n  box-shadow: black;\n  color: whitesmoke;\n  font-weight: bold;\n}\n.game[_ngcontent-%COMP%]   .player[_ngcontent-%COMP%] {\n  font-weight: bold;\n}\n.green[_ngcontent-%COMP%] {\n  background-color: green !important;\n}\n.red[_ngcontent-%COMP%] {\n  background-color: red !important;\n}\n.orange[_ngcontent-%COMP%] {\n  background-color: orange !important;\n}\n.simple[_ngcontent-%COMP%] {\n  color: #007bff;\n}\n.double[_ngcontent-%COMP%] {\n  color: #6c757d;\n}\n.triple[_ngcontent-%COMP%] {\n  color: #dc3545;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdhbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSx1QkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUFBSjtBQUVFO0VBQ0UsNEJBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtBQUFKO0FBRUU7RUFDRSxTQUFBO0VBQ0EsVUFBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtBQUFKO0FBRUk7RUFDRSxlQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FBQU47QUFFSTtFQUNFLGVBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7QUFBTjtBQU9JOzs7RUFDRSwyQkFBQTtFQUNBLFlBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7QUFITjtBQU9FO0VBQ0UsdUJBQUE7RUFDQSxrQkFBQTtFQUNBLHVCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0FBTEo7QUFRRTtFQUNFLGlCQUFBO0FBTko7QUFVQTtFQUNFLGtDQUFBO0FBUEY7QUFTQTtFQUNFLGdDQUFBO0FBTkY7QUFRQTtFQUNFLG1DQUFBO0FBTEY7QUFRQTtFQUNFLGNBQUE7QUFMRjtBQU9BO0VBQ0UsY0FBQTtBQUpGO0FBTUE7RUFDRSxjQUFBO0FBSEYiLCJmaWxlIjoiZ2FtZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5nYW1lIHtcclxuICAudGFyZ2V0IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGdyZWVuO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIGZvbnQtc2l6ZTogMjVweDtcclxuICB9XHJcbiAgLnBvaW50IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlc21va2U7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxNXB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIGZvbnQtc2l6ZTogMzBweDtcclxuICB9XHJcbiAgLmJ1dHRvbnMge1xyXG4gICAgbGVmdDogNXB4O1xyXG4gICAgcmlnaHQ6IDVweDtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGJvdHRvbTogMDtcclxuXHJcbiAgICBidXR0b24ge1xyXG4gICAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogNjVweDtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gICAgfVxyXG4gICAgLmJ0bi10YXJnZXQge1xyXG4gICAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogNDBweDtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIC5maXJzdC10dXJuLFxyXG4gIC5zZWNvbmQtdHVybixcclxuICAudGhpcmQtdHVybiB7XHJcbiAgICAuc2tpbGwge1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBnb2xkZW5yb2Q7XHJcbiAgICAgIHBhZGRpbmc6IDVweDtcclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgICBtaW4td2lkdGg6IDQwcHg7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAuY3VycmVudCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gICAgYm94LXNoYWRvdzogYmxhY2s7XHJcbiAgICBjb2xvcjogd2hpdGVzbW9rZTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIH1cclxuXHJcbiAgLnBsYXllciB7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICB9XHJcbn1cclxuXHJcbi5ncmVlbiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW4gIWltcG9ydGFudDtcclxufVxyXG4ucmVkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQgIWltcG9ydGFudDtcclxufVxyXG4ub3JhbmdlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBvcmFuZ2UgIWltcG9ydGFudDtcclxufVxyXG5cclxuLnNpbXBsZSB7XHJcbiAgY29sb3I6ICMwMDdiZmY7XHJcbn1cclxuLmRvdWJsZSB7XHJcbiAgY29sb3I6ICM2Yzc1N2Q7XHJcbn1cclxuLnRyaXBsZSB7XHJcbiAgY29sb3I6ICNkYzM1NDU7XHJcbn1cclxuIl19 */"] });
 
 
 /***/ }),
@@ -479,11 +479,11 @@ class GameService {
         return targets;
     }
     initPlayers(players) {
-        return players.map(p => {
+        return players.map((p) => {
             return {
                 name: p,
                 score: 0,
-                points: [0, 0, 0, 0, 0, 0, 0]
+                points: [0, 0, 0, 0, 0, 0, 0],
             };
         });
     }
@@ -506,20 +506,20 @@ class GameService {
             return rv;
         }, {});
         const keys = Object.keys(group);
-        keys.forEach(key => {
+        keys.forEach((key) => {
             const position = this.getTargetPosition(targets, parseInt(key));
             if (position > -1) {
                 let totalScore = 0;
                 let totalPoint = 0;
                 let diff = 0;
-                group[key].forEach(elem => {
+                group[key].forEach((elem) => {
                     const points = this.calculatePoints(elem);
-                    diff = (currentPlayerPoints[position] + points) - 3;
+                    diff = currentPlayerPoints[position] + points - 3;
                     if (diff <= 0) {
                         currentPlayerPoints[position] += points;
                     }
                     else {
-                        totalScore += (diff * elem.value);
+                        totalScore += diff * elem.value;
                         currentPlayerPoints[position] = 3;
                     }
                     totalPoint += points;
@@ -533,10 +533,17 @@ class GameService {
                 }
             }
         });
-        tours.forEach(tour => {
+        tours.forEach((tour) => {
             const position = this.getTargetPosition(targets, tour.value);
             const isNumberClosed = this.isNumberClosed(players, position);
             if (targets[position] != 25 && !isNumberClosed) {
+                //
+                for (let i = 0; i < 6; i++) {
+                    if (!this.isNumberClosed(players, i)) {
+                        targets[i] = this.getRandomNumberInterval(targets);
+                    }
+                }
+                //
                 targets[position] = this.getRandomNumberInterval(targets);
             }
         });
@@ -566,7 +573,7 @@ class GameService {
         return targets.indexOf(value);
     }
     isNumberClosed(players, indexNumber) {
-        return players.some(player => {
+        return players.some((player) => {
             return player.points[indexNumber] === 3;
         });
     }
