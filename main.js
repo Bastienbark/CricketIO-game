@@ -264,6 +264,14 @@ class GameComponent {
         this.second = { skill: '', value: 0 };
         this.third = { skill: '', value: 0 };
         this.isValidateEnabled = false;
+        this.getShuffledArr = (arr) => {
+            const newArr = arr.slice();
+            for (let i = newArr.length - 1; i > 0; i--) {
+                const rand = Math.floor(Math.random() * (i + 1));
+                [newArr[i], newArr[rand]] = [newArr[rand], newArr[i]];
+            }
+            return newArr;
+        };
     }
     ngOnInit() {
         this.getPlayersFromRoute();
@@ -291,8 +299,8 @@ class GameComponent {
         return skillClass;
     }
     getNumberStateClass(index) {
-        const isClosedByAll = this.players.every(player => player.points[index] === 3);
-        const isClosedByOne = this.players.some(player => player.points[index] === 3);
+        const isClosedByAll = this.players.every((player) => player.points[index] === 3);
+        const isClosedByOne = this.players.some((player) => player.points[index] === 3);
         return isClosedByAll ? 'red' : isClosedByOne ? 'orange' : 'green';
     }
     addTargetValue(value) {
@@ -318,28 +326,30 @@ class GameComponent {
     validate() {
         this.service.updateGame(this.currentPlayer, this.first, this.second, this.third, this.players, this.targets);
         this.resetPlayerInstance();
-        this.currentPlayer === (this.players.length - 1)
-            ? this.currentPlayer = 0
-            : this.currentPlayer += 1;
+        this.currentPlayer === this.players.length - 1
+            ? (this.currentPlayer = 0)
+            : (this.currentPlayer += 1);
         const haveAWinner = this.haveAWinner();
         if (haveAWinner) {
-            this.router.navigateByUrl('/game/end', { state: { data: { winner: haveAWinner } } });
+            this.router.navigateByUrl('/game/end', {
+                state: { data: { winner: haveAWinner } },
+            });
         }
     }
     haveAWinner() {
         let theWinner = null;
-        const orderedPlayers = this.players;
+        const orderedPlayers = Object.assign([], this.players);
         orderedPlayers.sort((a, b) => {
             return b.score - a.score;
         });
         const total = orderedPlayers[0].points.reduce((a, b) => a + b, 0);
-        total === 21 ? theWinner = orderedPlayers[0].name : null;
+        total === 21 ? (theWinner = orderedPlayers[0].name) : null;
         return theWinner;
     }
     getPlayersFromRoute() {
-        this.route.data.subscribe(_ => {
-            const { data: { players } } = window.history.state;
-            this.players = this.service.initPlayers(players);
+        this.route.data.subscribe((_) => {
+            const { data: { players }, } = window.history.state;
+            this.players = this.getShuffledArr(this.service.initPlayers(players));
             this.currentPlayer = 0;
         });
     }
@@ -348,10 +358,14 @@ class GameComponent {
         if (this.first.skill === '' || this.first.value === 0) {
             return 'first';
         }
-        else if ((this.first.skill !== '' || this.first.value !== 0) && (this.second.skill === '' || this.second.value === 0)) {
+        else if ((this.first.skill !== '' || this.first.value !== 0) &&
+            (this.second.skill === '' || this.second.value === 0)) {
             return 'second';
         }
-        else if (((this.first.skill !== '' || this.first.value !== 0) && (this.second.skill !== '' || this.second.value !== 0)) && this.third.skill === '' || this.third.value === 0) {
+        else if (((this.first.skill !== '' || this.first.value !== 0) &&
+            (this.second.skill !== '' || this.second.value !== 0) &&
+            this.third.skill === '') ||
+            this.third.value === 0) {
             this.isValidateEnabled = true;
             return 'third';
         }
@@ -451,7 +465,7 @@ GameComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.targets);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](12);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("disabled", !ctx.isValidateEnabled);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass], styles: [".game[_ngcontent-%COMP%]   .target[_ngcontent-%COMP%] {\n  background-color: green;\n  color: white;\n  margin-left: 2px;\n  font-size: 25px;\n}\n.game[_ngcontent-%COMP%]   .point[_ngcontent-%COMP%] {\n  background-color: whitesmoke;\n  border-radius: 15px;\n  margin-left: 2px;\n  font-size: 30px;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%] {\n  left: 5px;\n  right: 5px;\n  position: absolute;\n  bottom: 0;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  font-size: 20px;\n  min-width: 65px;\n  margin-bottom: 5px;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%]   .btn-target[_ngcontent-%COMP%] {\n  font-size: 20px;\n  min-width: 40px;\n  margin-bottom: 15px;\n}\n.game[_ngcontent-%COMP%]   .first-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%], .game[_ngcontent-%COMP%]   .second-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%], .game[_ngcontent-%COMP%]   .third-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%] {\n  background-color: goldenrod;\n  padding: 5px;\n  font-size: 20px;\n  font-weight: bold;\n  border-radius: 5px;\n  min-width: 40px;\n}\n.game[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  background-color: green;\n  border-radius: 5px;\n  border: 1px solid black;\n  box-shadow: black;\n  color: whitesmoke;\n  font-weight: bold;\n}\n.game[_ngcontent-%COMP%]   .player[_ngcontent-%COMP%] {\n  font-weight: bold;\n}\n.green[_ngcontent-%COMP%] {\n  background-color: green !important;\n}\n.red[_ngcontent-%COMP%] {\n  background-color: red !important;\n}\n.orange[_ngcontent-%COMP%] {\n  background-color: orange !important;\n}\n.simple[_ngcontent-%COMP%] {\n  color: #007bff;\n}\n.double[_ngcontent-%COMP%] {\n  color: #6c757d;\n}\n.triple[_ngcontent-%COMP%] {\n  color: #dc3545;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdhbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSx1QkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUFBSjtBQUVFO0VBQ0UsNEJBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtBQUFKO0FBRUU7RUFDRSxTQUFBO0VBQ0EsVUFBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtBQUFKO0FBRUk7RUFDRSxlQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0FBQU47QUFFSTtFQUNFLGVBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7QUFBTjtBQU9JOzs7RUFDRSwyQkFBQTtFQUNBLFlBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGVBQUE7QUFITjtBQU9FO0VBQ0UsdUJBQUE7RUFDQSxrQkFBQTtFQUNBLHVCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0FBTEo7QUFRRTtFQUNFLGlCQUFBO0FBTko7QUFVQTtFQUNFLGtDQUFBO0FBUEY7QUFTQTtFQUNFLGdDQUFBO0FBTkY7QUFRQTtFQUNFLG1DQUFBO0FBTEY7QUFRQTtFQUNFLGNBQUE7QUFMRjtBQU9BO0VBQ0UsY0FBQTtBQUpGO0FBTUE7RUFDRSxjQUFBO0FBSEYiLCJmaWxlIjoiZ2FtZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5nYW1lIHtcclxuICAudGFyZ2V0IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGdyZWVuO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIGZvbnQtc2l6ZTogMjVweDtcclxuICB9XHJcbiAgLnBvaW50IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlc21va2U7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxNXB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IDJweDtcclxuICAgIGZvbnQtc2l6ZTogMzBweDtcclxuICB9XHJcbiAgLmJ1dHRvbnMge1xyXG4gICAgbGVmdDogNXB4O1xyXG4gICAgcmlnaHQ6IDVweDtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGJvdHRvbTogMDtcclxuXHJcbiAgICBidXR0b24ge1xyXG4gICAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogNjVweDtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG4gICAgfVxyXG4gICAgLmJ0bi10YXJnZXQge1xyXG4gICAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICAgIG1pbi13aWR0aDogNDBweDtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogMTVweDtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIC5maXJzdC10dXJuLFxyXG4gIC5zZWNvbmQtdHVybixcclxuICAudGhpcmQtdHVybiB7XHJcbiAgICAuc2tpbGwge1xyXG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiBnb2xkZW5yb2Q7XHJcbiAgICAgIHBhZGRpbmc6IDVweDtcclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgICBtaW4td2lkdGg6IDQwcHg7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAuY3VycmVudCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gICAgYm94LXNoYWRvdzogYmxhY2s7XHJcbiAgICBjb2xvcjogd2hpdGVzbW9rZTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIH1cclxuXHJcbiAgLnBsYXllciB7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICB9XHJcbn1cclxuXHJcbi5ncmVlbiB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW4gIWltcG9ydGFudDtcclxufVxyXG4ucmVkIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQgIWltcG9ydGFudDtcclxufVxyXG4ub3JhbmdlIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBvcmFuZ2UgIWltcG9ydGFudDtcclxufVxyXG5cclxuLnNpbXBsZSB7XHJcbiAgY29sb3I6ICMwMDdiZmY7XHJcbn1cclxuLmRvdWJsZSB7XHJcbiAgY29sb3I6ICM2Yzc1N2Q7XHJcbn1cclxuLnRyaXBsZSB7XHJcbiAgY29sb3I6ICNkYzM1NDU7XHJcbn1cclxuIl19 */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass], styles: [".game[_ngcontent-%COMP%]   .target[_ngcontent-%COMP%] {\n  background-color: green;\n  color: white;\n  margin-left: 2px;\n  font-size: 25px;\n}\n.game[_ngcontent-%COMP%]   .point[_ngcontent-%COMP%] {\n  background-color: whitesmoke;\n  margin-left: 2px;\n  font-size: 30px;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%] {\n  left: 5px;\n  right: 5px;\n  position: absolute;\n  bottom: 0;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  font-size: 20px;\n  min-width: 65px;\n  margin-bottom: 5px;\n}\n.game[_ngcontent-%COMP%]   .buttons[_ngcontent-%COMP%]   .btn-target[_ngcontent-%COMP%] {\n  font-size: 20px;\n  min-width: 40px;\n  margin-bottom: 15px;\n}\n.game[_ngcontent-%COMP%]   .first-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%], .game[_ngcontent-%COMP%]   .second-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%], .game[_ngcontent-%COMP%]   .third-turn[_ngcontent-%COMP%]   .skill[_ngcontent-%COMP%] {\n  background-color: goldenrod;\n  padding: 5px;\n  font-size: 20px;\n  font-weight: bold;\n  min-width: 40px;\n}\n.game[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n  background-color: green;\n  border-radius: 5px;\n  border: 1px solid black;\n  box-shadow: black;\n  color: whitesmoke;\n  font-weight: bold;\n}\n.game[_ngcontent-%COMP%]   .player[_ngcontent-%COMP%] {\n  font-weight: bold;\n}\n.green[_ngcontent-%COMP%] {\n  background-color: green !important;\n}\n.red[_ngcontent-%COMP%] {\n  background-color: red !important;\n}\n.orange[_ngcontent-%COMP%] {\n  background-color: orange !important;\n}\n.simple[_ngcontent-%COMP%] {\n  color: #007bff;\n}\n.double[_ngcontent-%COMP%] {\n  color: #6c757d;\n}\n.triple[_ngcontent-%COMP%] {\n  color: #dc3545;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdhbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSx1QkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUFBSjtBQUVFO0VBQ0UsNEJBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7QUFBSjtBQUVFO0VBQ0UsU0FBQTtFQUNBLFVBQUE7RUFDQSxrQkFBQTtFQUNBLFNBQUE7QUFBSjtBQUVJO0VBQ0UsZUFBQTtFQUNBLGVBQUE7RUFDQSxrQkFBQTtBQUFOO0FBRUk7RUFDRSxlQUFBO0VBQ0EsZUFBQTtFQUNBLG1CQUFBO0FBQU47QUFPSTs7O0VBQ0UsMkJBQUE7RUFDQSxZQUFBO0VBQ0EsZUFBQTtFQUNBLGlCQUFBO0VBQ0EsZUFBQTtBQUhOO0FBT0U7RUFDRSx1QkFBQTtFQUNBLGtCQUFBO0VBQ0EsdUJBQUE7RUFDQSxpQkFBQTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7QUFMSjtBQVFFO0VBQ0UsaUJBQUE7QUFOSjtBQVVBO0VBQ0Usa0NBQUE7QUFQRjtBQVNBO0VBQ0UsZ0NBQUE7QUFORjtBQVFBO0VBQ0UsbUNBQUE7QUFMRjtBQVFBO0VBQ0UsY0FBQTtBQUxGO0FBT0E7RUFDRSxjQUFBO0FBSkY7QUFNQTtFQUNFLGNBQUE7QUFIRiIsImZpbGUiOiJnYW1lLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmdhbWUge1xyXG4gIC50YXJnZXQge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogZ3JlZW47XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBtYXJnaW4tbGVmdDogMnB4O1xyXG4gICAgZm9udC1zaXplOiAyNXB4O1xyXG4gIH1cclxuICAucG9pbnQge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGVzbW9rZTtcclxuICAgIG1hcmdpbi1sZWZ0OiAycHg7XHJcbiAgICBmb250LXNpemU6IDMwcHg7XHJcbiAgfVxyXG4gIC5idXR0b25zIHtcclxuICAgIGxlZnQ6IDVweDtcclxuICAgIHJpZ2h0OiA1cHg7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBib3R0b206IDA7XHJcblxyXG4gICAgYnV0dG9uIHtcclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgICBtaW4td2lkdGg6IDY1cHg7XHJcbiAgICAgIG1hcmdpbi1ib3R0b206IDVweDtcclxuICAgIH1cclxuICAgIC5idG4tdGFyZ2V0IHtcclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgICBtaW4td2lkdGg6IDQwcHg7XHJcbiAgICAgIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAuZmlyc3QtdHVybixcclxuICAuc2Vjb25kLXR1cm4sXHJcbiAgLnRoaXJkLXR1cm4ge1xyXG4gICAgLnNraWxsIHtcclxuICAgICAgYmFja2dyb3VuZC1jb2xvcjogZ29sZGVucm9kO1xyXG4gICAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICAgIG1pbi13aWR0aDogNDBweDtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIC5jdXJyZW50IHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGdyZWVuO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbiAgICBib3gtc2hhZG93OiBibGFjaztcclxuICAgIGNvbG9yOiB3aGl0ZXNtb2tlO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgfVxyXG5cclxuICAucGxheWVyIHtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIH1cclxufVxyXG5cclxuLmdyZWVuIHtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiBncmVlbiAhaW1wb3J0YW50O1xyXG59XHJcbi5yZWQge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJlZCAhaW1wb3J0YW50O1xyXG59XHJcbi5vcmFuZ2Uge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IG9yYW5nZSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uc2ltcGxlIHtcclxuICBjb2xvcjogIzAwN2JmZjtcclxufVxyXG4uZG91YmxlIHtcclxuICBjb2xvcjogIzZjNzU3ZDtcclxufVxyXG4udHJpcGxlIHtcclxuICBjb2xvcjogI2RjMzU0NTtcclxufVxyXG4iXX0= */"] });
 
 
 /***/ }),
